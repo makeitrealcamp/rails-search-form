@@ -1,0 +1,22 @@
+#transactions {
+  .date { 
+    width: 50px;
+    text-align: center;
+
+    .day { 
+      font-size: 21px;
+      line-height: 1.1em;
+    }
+    .month { font-size: 13px; } 
+  }
+  .concept {
+    color: #ccd1d4;
+    font-size: 18px;
+  }
+  .category {
+    width: 150px;
+  }
+  .amount {
+    font-size: 18px;
+  }
+}

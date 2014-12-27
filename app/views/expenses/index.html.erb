@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3">
+      <%= form_tag expenses_path, method: :get do %>
+        <div class="form-group">
+          <%= text_field_tag :concept, params[:concept], class: "form-control", placeholder: "Concepto" %>
+        </div>
+        <div class="form-group">
+          <%= select_tag :category_id, options_from_collection_for_select(Category.all, "id", "name", params[:category_id]), prompt: "Categoría", class: "form-control" %>
+        </div>
+        <%= submit_tag "Buscar", name: nil, class: "btn btn-primary btn-md" %>
+      <% end %>
+    </div>
+    <div class="col-sm-9">
+      <table class="table" id="transactions">
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Concepto</th>
+            <th class="text-right">Categoría</th>
+            <th class="text-right">Monto</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @expenses.each do |expense| %>
+            <tr>
+              <td class="date">
+                <div class="day"><%= l(expense.date, format: "%d") %></div>
+                <div class="month"><%= l(expense.date, format: "%b") %></div>
+              </td>
+              <td class="concept"><%= expense.concept %></td>
+              <td class="category text-right"><%= expense.category.name %></td>
+              <td class="text-right amount" style="width: 170px;"><%= number_to_currency(expense.amount, precision: 0) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
