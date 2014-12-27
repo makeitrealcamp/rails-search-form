@@ -1,0 +1,6 @@
+{
+  "name": "Ruby on Rails Search Form Example",
+  "description": "A simple Ruby on Rails application that shows how to implement a search form.",
+  "repository": "https://github.com/makeitrealcamp/rails-search-form",
+  "keywords": ["rails", "ruby", "search", "form"]
+}
